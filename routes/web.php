@@ -24,3 +24,4 @@ Route::post('index/fj','Index\Indexcontroller@fj');
 Route::post('index/pc','Index\Indexcontroller@pc');
 Route::post('index/fensi','Index\Indexcontroller@fensi');
 Route::post('index/dajia','Index\Indexcontroller@dajia');
+Route::get('tan','Index\Indexcontroller@tan');
