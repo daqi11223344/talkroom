@@ -18,18 +18,130 @@
     <input type="text" id="message">
     <input type="button" value="发送" id='btn'>
     <img src="./bq.jpg" alt="添加表情" style="width: 30px; height: 30px; margin-top: 15px" id="bq">
-    {{--<div id="bqlist" style="width: 70%; height: auto"></div>--}}
-    <div id="bqlist" style="width: 400px;height: auto;"></div>
+    <div id="bqlist" style="width: 70%; height: auto"></div>
+    {{--<div id="bqlist" style="width: 400px;height: auto;"></div>--}}
 </div>
-<div  style="width: 100px;height: 100px;border: 1px solid black;float: right; margin:15px 15px 15px 15px" ></div>
-<div  style="width: 100px;height: 100px;border: 1px solid black;float: right; margin:15px 15px 15px 15px" ></div>
-<div  style="width: 100px;height: 100px;border: 1px solid black;float: right; margin:15px 15px 15px 15px" ></div>
-<div  style="width: 100px;height: 100px;border: 1px solid black;float: right; margin:15px 15px 15px 15px" ></div>
-<div  style="width: 100px;height: 100px;border: 1px solid black;float: right; margin:15px 15px 15px 15px" ></div>
-<div  style="width: 100px;height: 100px;border: 1px solid black;float: right; margin:15px 15px 15px 15px" ></div>
-<div  style="width: 100px;height: 100px;border: 1px solid black;float: right; margin:15px 15px 15px 15px" ></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="xh"><img style="width:99%;height:80px" src="{{url('./storage/liwu/xh.jpg')}}" alt=""><p style="text-align:center">1积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="zs"><img style="width:99%;height:80px" src="{{url('./storage/liwu/zs.jpg')}}" alt=""><p style="text-align:center">10积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="pc"><img style="width:99%;height:80px" src="{{url('./storage/liwu/pc.jpg')}}" alt=""><p style="text-align:center">100积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="hj"><img style="width:99%;height:80px" src="{{url('./storage/liwu/hj.jpg')}}" alt=""><p style="text-align:center">1000积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="fj"><img style="width:99%;height:80px" src="{{url('./storage/liwu/fj.jpg')}}" alt=""><p style="text-align:center">10000积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="tui"><input type="button" value="点击退出"></div>
 </body>
 <script>
+    //    粉丝贡献榜
+    $(document).on('click','.fensi',function(){
+        var _this=$(this);
+        var s = $('.huan');
+        $.ajax({
+            url:"{{url('index/fensi')}}",
+            type:"POST",
+            success:function(data){
+                s.html(data);
+            }
+        })
+    })
+    $(document).on('click','.dajia',function(){
+        var _this=$(this);
+        var s = $('.huan');
+        $.ajax({
+            url:"{{url('index/dajia')}}",
+            type:"POST",
+            success:function(data){
+                s.html(data);
+            }
+        })
+    })
+    //鲜花
+    $(document).on('click','.xh',function(){
+        var res = $(this).find('img').attr("src");
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        var name = "{{session('name')}}";
+        $.ajax({
+            url:"{{url('index/xh')}}",
+            type:"POST",
+            data:{
+                name:name,
+                jf:'1'
+            },
+            dataType:"JSON",
+        })
+    })
+    //砖石
+    $(document).on('click','.zs',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        var name = "{{session('name')}}";
+        $.ajax({
+            url:"{{url('index/zs')}}",
+            type:"POST",
+            data:{
+                name:name,
+                jf:'10'
+            },
+            dataType:"JSON",
+        })
+    })
+    //跑车
+    $(document).on('click','.pc',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        var name = "{{session('name')}}";
+        $.ajax({
+            url:"{{url('index/pc')}}",
+            type:"POST",
+            data:{
+                name:name,
+                jf:'100'
+            },
+            dataType:"JSON",
+        })
+    })
+    //火箭
+    $(document).on('click','.hj',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        var name = "{{session('name')}}";
+        $.ajax({
+            url:"{{url('index/hj')}}",
+            type:"POST",
+            data:{
+                name:name,
+                jf:'1000'
+            },
+            dataType:"JSON",
+        })
+    })
+    //飞机
+    $(document).on('click','.fj',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        var name = "{{session('name')}}";
+        $.ajax({
+            url:"{{url('index/fj')}}",
+            type:"POST",
+            data:{
+                name:name,
+                jf:'10000'
+            },
+            dataType:"JSON",
+        })
+    })
+
     $(document).on('click','.dajia',function(){
         var _this=$(this);
         var div = _this.parent().parent().html();
@@ -37,7 +149,7 @@
     });
     var player = new Aliplayer({
         "id": "player-con",
-        "source": "rtmp://youke.wangzhimo.top/vido/strvido?auth_key=1583314641-0-0-4d38079050dcd5997f9c6ce282b3e30a",
+        "source": "rtmp://youke.bianaoao.top/filevido/vido?auth_key=1583117148-0-0-4efcff3b7648a2dac22eb6b65654ecc4",
         "width": "100%",
         "height": "500px",
         "autoplay": true,
@@ -51,7 +163,7 @@
         console.log("The player is created");
     });
     var username = prompt('请输入用户名');
-    var ws = new WebSocket("ws://182.92.161.74:9502");
+    var ws = new WebSocket("ws://116.62.160.207:9502");
     ws.onopen = function() {
         var message = '{"type":"login","con":"' + username + '"}';
         ws.send(message);
@@ -63,11 +175,15 @@
         } else if (data.is_me == 0 && data.type == 'login') {
             var con = "<p style='text-align:center'>♠系统提示：" + data.username + "上线♠</p>";
         } else if (data.is_me == 1 && data.type == 'message') {
-            var con = "<div style='width: 99%; height: 100px;' align='right'><p>♥我♥</p><p></p><p>" + data.message + "</p></div>"
+            var con = "<div align='right'><p>♥我♥</p><p style='border:1px solid #339900;margin-right: 20px;width: 40%;height: auto;border-radius: inherit;background-color:#339900;'>" + data.message + "</p></div>"
         } else if (data.is_me == 0 && data.type == 'message') {
-            var con = "<div style='width: 300px; height: 100px;' alig='left'><p>♠来自用户" + data.username + "的消息♠</p><p></p><p>" + data.message + "</p></div>"
+            var con = "<div alig='left'><p>♠来自用户" + data.username + "的消息♠</p><p style='border:1px solid #CCFFFF;margin-right: 20px;width: 40%;height: auto;border-radius: inherit;background-color:#CCFFFF;'>" + data.message + "</p></div>"
         } else if (data.is_me == 0 && data.type == 'loginout') {
             var con = "<p style='text-align:center'>☹系统提示：" + data.username + "离开了聊天室☹</p>";
+        }else if (data.is_me == 1 && data.type == 'liwu') {
+            var con = "<div align='right'><p>您刷的礼物</p><p><p style='border:1px solid #339900;margin-right: 20px;width: 40%;height: auto;border-radius: inherit;background-color:#339900;'>" + data.message + "</p></div>"
+        } else if (data.is_me == 0 && data.type == 'liwu') {
+            var con = "<div alig='left'><p>来自" + data.username + "刷的礼物</p><p style='border:1px solid #CCFFFF;margin-right: 20px;width: 40%;height: auto;border-radius: inherit;background-color:#CCFFFF;'>" + data.message + "</p></div>"
         }
         $("#list").append(con);
     }

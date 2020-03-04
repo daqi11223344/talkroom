@@ -16,3 +16,11 @@
 // });
 
 Route::get('/','Index\IndexController@index');
+
+Route::post('index/xh','Index\Indexcontroller@xh');
+Route::post('index/zs','Index\Indexcontroller@zs');
+Route::post('index/hj','Index\Indexcontroller@hj');
+Route::post('index/fj','Index\Indexcontroller@fj');
+Route::post('index/pc','Index\Indexcontroller@pc');
+Route::post('index/fensi','Index\Indexcontroller@fensi');
+Route::post('index/dajia','Index\Indexcontroller@dajia');
