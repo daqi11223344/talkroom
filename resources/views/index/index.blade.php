@@ -22,44 +22,45 @@
     <div id="bqlist" style="width: 70%; height: auto"></div>
     {{--<div id="bqlist" style="width: 400px;height: auto;"></div>--}}
 </div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" ><img style="width:99%;height:80px" src="{{url('./storage/liwu/xianhua.png')}}" alt=""><p style="text-align:center">1积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" ><img style="width:99%;height:80px" src="{{url('./storage/liwu/zs.jpg')}}" alt=""><p style="text-align:center">10积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" ><img style="width:99%;height:80px" src="{{url('./storage/liwu/paoche.gif')}}" alt=""><p style="text-align:center">100积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" ><img style="width:99%;height:80px" src="{{url('./storage/liwu/hj.jpg')}}" alt=""><p style="text-align:center">1000积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" ><img style="width:99%;height:80px" src="{{url('./storage/liwu/feiji.gif')}}" alt=""><p style="text-align:center">10000积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" ><input type="button" value="点击退出"></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="xh"><img style="width:99%;height:80px" src="{{url('./storage/liwu/xianhua.png')}}" alt=""><p style="text-align:center">1积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="zs"><img style="width:99%;height:80px" src="{{url('./storage/liwu/zs.jpg')}}" alt=""><p style="text-align:center">10积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="pc"><img style="width:99%;height:80px" src="{{url('./storage/liwu/paoche.gif')}}" alt=""><p style="text-align:center">100积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="hj"><img style="width:99%;height:80px" src="{{url('./storage/liwu/hj.jpg')}}" alt=""><p style="text-align:center">1000积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="fj"><img style="width:99%;height:80px" src="{{url('./storage/liwu/feiji.gif')}}" alt=""><p style="text-align:center">10000积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="tui"><input type="button" value="点击退出"></div>
 </body>
 <script>
     //    粉丝贡献榜
-    {{--$(document).on('click','.fensi',function(){--}}
-        {{--var _this=$(this);--}}
-        {{--var s = $('.huan');--}}
-        {{--$.ajax({--}}
-            {{--url:"{{url('index/fensi')}}",--}}
-            {{--type:"POST",--}}
-            {{--success:function(data){--}}
-                {{--s.html(data);--}}
-            {{--}--}}
-        {{--})--}}
-    {{--})--}}
-    {{--$(document).on('click','.dajia',function(){--}}
-        {{--var _this=$(this);--}}
-        {{--var s = $('.huan');--}}
-        {{--$.ajax({--}}
-            {{--url:"{{url('index/dajia')}}",--}}
-            {{--type:"POST",--}}
-            {{--success:function(data){--}}
-                {{--s.html(data);--}}
-            {{--}--}}
-        {{--})--}}
-    {{--})--}}
+    $(document).on('click','.fensi',function(){
+        var _this=$(this);
+        var s = $('.huan');
+        $.ajax({
+            url:"{{url('index/fensi')}}",
+            type:"POST",
+            success:function(data){
+                s.html(data);
+            }
+        })
+    })
+    $(document).on('click','.dajia',function(){
+        var _this=$(this);
+        var s = $('.huan');
+        $.ajax({
+            url:"{{url('index/dajia')}}",
+            type:"POST",
+            success:function(data){
+                s.html(data);
+            }
+        })
+    })
     {{--//鲜花--}}
-    {{--$(document).on('click','.xh',function(){--}}
-        {{--var res = $(this).find('img').attr("src");--}}
-        {{--var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";--}}
-        {{--var message = '{"type":"liwu","con":"' + con + '"}';--}}
-        {{--ws.send(message);--}}
-        {{--var name = "{{session('name')}}";--}}
+    $(document).on('click','.xh',function(){
+        var res = $(this).find('img').attr("src");
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        alert('这是花，但是不能送');
+{{--        var name = "{{session('name')}}";--}}
         {{--$.ajax({--}}
             {{--url:"{{url('index/xh')}}",--}}
             {{--type:"POST",--}}
@@ -69,14 +70,15 @@
             {{--},--}}
             {{--dataType:"JSON",--}}
         {{--})--}}
-    {{--})--}}
+    })
     {{--//砖石--}}
-    {{--$(document).on('click','.zs',function(){--}}
-        {{--var res = $(this).find('img').attr("src");--}}
-        {{--console.log(res);--}}
-        {{--var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";--}}
-        {{--var message = '{"type":"liwu","con":"' + con + '"}';--}}
-        {{--ws.send(message);--}}
+    $(document).on('click','.zs',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        alert('这是钻石，但是不能送');
         {{--var name = "{{session('name')}}";--}}
         {{--$.ajax({--}}
             {{--url:"{{url('index/zs')}}",--}}
@@ -87,14 +89,15 @@
             {{--},--}}
             {{--dataType:"JSON",--}}
         {{--})--}}
-    {{--})--}}
+    })
     {{--//跑车--}}
-    {{--$(document).on('click','.pc',function(){--}}
-        {{--var res = $(this).find('img').attr("src");--}}
-        {{--console.log(res);--}}
-        {{--var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";--}}
-        {{--var message = '{"type":"liwu","con":"' + con + '"}';--}}
-        {{--ws.send(message);--}}
+    $(document).on('click','.pc',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        alert('这是跑车，但是不能送');
         {{--var name = "{{session('name')}}";--}}
         {{--$.ajax({--}}
             {{--url:"{{url('index/pc')}}",--}}
@@ -105,14 +108,15 @@
             {{--},--}}
             {{--dataType:"JSON",--}}
         {{--})--}}
-    {{--})--}}
+    })
     {{--//火箭--}}
-    {{--$(document).on('click','.hj',function(){--}}
-        {{--var res = $(this).find('img').attr("src");--}}
-        {{--console.log(res);--}}
-        {{--var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";--}}
-        {{--var message = '{"type":"liwu","con":"' + con + '"}';--}}
-        {{--ws.send(message);--}}
+    $(document).on('click','.hj',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        alert('这是火箭，但是不能送');
         {{--var name = "{{session('name')}}";--}}
         {{--$.ajax({--}}
             {{--url:"{{url('index/hj')}}",--}}
@@ -123,14 +127,15 @@
             {{--},--}}
             {{--dataType:"JSON",--}}
         {{--})--}}
-    {{--})--}}
+    })
     {{--//飞机--}}
-    {{--$(document).on('click','.fj',function(){--}}
-        {{--var res = $(this).find('img').attr("src");--}}
-        {{--console.log(res);--}}
-        {{--var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";--}}
-        {{--var message = '{"type":"liwu","con":"' + con + '"}';--}}
-        {{--ws.send(message);--}}
+    $(document).on('click','.fj',function(){
+        var res = $(this).find('img').attr("src");
+        console.log(res);
+        var con = "<img class='bqimg' src='" + res + "' style='width: 70px;height: 70px;'>";
+        var message = '{"type":"liwu","con":"' + con + '"}';
+        ws.send(message);
+        alert('这是飞机，但是不能送');
         {{--var name = "{{session('name')}}";--}}
         {{--$.ajax({--}}
             {{--url:"{{url('index/fj')}}",--}}
@@ -141,7 +146,7 @@
             {{--},--}}
             {{--dataType:"JSON",--}}
         {{--})--}}
-    {{--})--}}
+    })
 
     $(document).on('click','.dajia',function(){
         var _this=$(this);
