@@ -17,11 +17,11 @@
 
 Route::get('/','Index\IndexController@index');
 
-Route::post('index/xh','Index\Indexcontroller@xh');
-Route::post('index/zs','Index\Indexcontroller@zs');
-Route::post('index/hj','Index\Indexcontroller@hj');
-Route::post('index/fj','Index\Indexcontroller@fj');
-Route::post('index/pc','Index\Indexcontroller@pc');
-Route::post('index/fensi','Index\Indexcontroller@fensi');
-Route::post('index/dajia','Index\Indexcontroller@dajia');
-Route::get('tan','Index\Indexcontroller@tan');
+Route::post('index/xh','Index\IndexController@xh');
+Route::post('index/zs','Index\IndexController@zs');
+Route::post('index/hj','Index\IndexController@hj');
+Route::post('index/fj','Index\IndexController@fj');
+Route::post('index/pc','Index\IndexController@pc');
+Route::post('index/fensi','Index\IndexController@fensi');
+Route::post('index/dajia','Index\IndexController@dajia');
+Route::get('tan','Index\IndexController@tan');
