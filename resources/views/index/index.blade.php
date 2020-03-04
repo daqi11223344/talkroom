@@ -37,7 +37,7 @@
     });
     var player = new Aliplayer({
         "id": "player-con",
-        "source": "rtmp://youke.bianaoao.top/filevido/vido?auth_key=1583117148-0-0-4efcff3b7648a2dac22eb6b65654ecc4",
+        "source": "rtmp://youke.wangzhimo.top/vido/strvido?auth_key=1583314641-0-0-4d38079050dcd5997f9c6ce282b3e30a",
         "width": "100%",
         "height": "500px",
         "autoplay": true,
