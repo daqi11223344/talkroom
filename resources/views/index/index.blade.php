@@ -22,11 +22,11 @@
     <div id="bqlist" style="width: 70%; height: auto"></div>
     {{--<div id="bqlist" style="width: 400px;height: auto;"></div>--}}
 </div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="xh"><img style="width:99%;height:80px" src="{{url('./storage/liwu/xianhua.png')}}" alt=""><p style="text-align:center">1积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="zs"><img style="width:99%;height:80px" src="{{url('./storage/liwu/zs.jpg')}}" alt=""><p style="text-align:center">10积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="pc"><img style="width:99%;height:80px" src="{{url('./storage/liwu/paoche.gif')}}" alt=""><p style="text-align:center">100积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="hj"><img style="width:99%;height:80px" src="{{url('./storage/liwu/hj.jpg')}}" alt=""><p style="text-align:center">1000积分</p></div>
-<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="fj"><img style="width:99%;height:80px" src="{{url('./storage/liwu/feiji.gif')}}" alt=""><p style="text-align:center">10000积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="xh"><img style="width:99%;height:80px" src="{{url('./img/liwu/xianhua.png')}}" alt=""><p style="text-align:center">1积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="zs"><img style="width:99%;height:80px" src="{{url('./img/liwu/zs.jpg')}}" alt=""><p style="text-align:center">10积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="pc"><img style="width:99%;height:80px" src="{{url('./img/liwu/paoche.gif')}}" alt=""><p style="text-align:center">100积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="hj"><img style="width:99%;height:80px" src="{{url('./img/liwu/hj.jpg')}}" alt=""><p style="text-align:center">1000积分</p></div>
+<div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="fj"><img style="width:99%;height:80px" src="{{url('./img/liwu/feiji.gif')}}" alt=""><p style="text-align:center">10000积分</p></div>
 <div  style="width: 100px;height: 100px;float: right; margin:15px 15px 15px 15px" class="tui"><input type="button" value="点击退出"></div>
 </body>
 <script>
