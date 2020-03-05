@@ -155,7 +155,7 @@
     });
     var player = new Aliplayer({
         "id": "player-con",
-        "source": "rtmp://youke.wangzhimo.top/myfiestvideo/video?auth_key=1583347294-0-0-f2c6262606a31e6c7bf58d7dbfc11c0b",
+        "source": "rtmp://youke.wangzhimo.top/vido/zhibo?auth_key=1583373971-0-0-cfc383453590706056c58cafa5e5833d",
         "width": "100%",
         "height": "500px",
         "autoplay": true,
