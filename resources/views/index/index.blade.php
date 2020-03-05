@@ -12,9 +12,9 @@
 <body>
 <div style="width: 70%;height: 500px;border: 1px solid black;float: left;" class="prism-player" id="player-con"></div>
 <div style="width: 29%;float:right;">
-    <input type="button" value="☺大家说☺" style="width:49%;height:40px">
-    <input type="button" value="☀粉丝贡献榜☀" style="width:49%;height:40px">
-    <div style="width: 99%; height: 600px; border: 1px solid black;overflow: auto" id="list"></div>
+    <input type="button" value="☺大家说☺" style="width:49%;height:40px; background-color:#CC9966;">
+    <input type="button" value="☀粉丝贡献榜☀" style="width:49%;height:40px; background-color:#CC9966;">
+    <div style="width: 99%; height: 600px;  border: 1px solid black;background-color:#CC99FF;overflow: auto" id="list"></div>
     <input type="text" id="message">
     <input type="button" value="发送" id='btn'>
     <img src="./bq.jpg" alt="添加表情" style="width: 30px; height: 30px; margin-top: 15px" id="bq">
